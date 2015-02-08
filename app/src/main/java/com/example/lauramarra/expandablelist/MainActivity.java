@@ -1,8 +1,12 @@
 package com.example.lauramarra.expandablelist;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +34,138 @@ public class MainActivity extends Activity {
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
+
+        // Listview Group click listener
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v,
+                                        int groupPosition, long id) {
+                // Toast.makeText(getApplicationContext(),
+                // "Group Clicked " + listDataHeader.get(groupPosition),
+                // Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+        // Listview Group expanded listener
+        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                Toast.makeText(getApplicationContext(),
+                        listDataHeader.get(groupPosition) + " Expanded",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Listview Group collasped listener
+        expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                Toast.makeText(getApplicationContext(),
+                        listDataHeader.get(groupPosition) + " Collapsed",
+                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        // Listview on child click listener
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+
+                Intent launchBrowser;
+                Uri uriUrl;
+
+                // TODO Auto-generated method stub
+
+                switch(childPosition){
+                    case 0:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+
+                    case 1:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+
+                    case 2:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+
+                    case 3:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+
+                    case 4:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+
+                    case 5:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+
+                    case 6:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+
+                    case 7:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+
+                    case 8:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+
+                    case 9:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+
+                    case 10:
+                        uriUrl = Uri.parse("https://plus.google.com/107217033654580487496/posts/Eq88mYPGXes");
+                        launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        startActivity(launchBrowser);
+                        break;
+                }
+
+
+
+                /*
+                Toast.makeText(
+                        getApplicationContext(),
+                        listDataHeader.get(groupPosition)
+                                + " : "
+                                + listDataChild.get(
+                                listDataHeader.get(groupPosition)).get(
+                                childPosition), Toast.LENGTH_SHORT)
+                        .show();
+                        */
+                return false;
+            }
+        });
     }
 
     /*
